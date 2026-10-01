@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insurance Quote Result</title>
+</head>
+
+<body>
+
+    <h1>Quote Generated</h1>
+
+    <p>Your insurance quote has been successfully generated.</p>
+
+    <p>
+        Monthly Premium:
+        <strong id="premium"></strong>
+    </p>
+
+    <p>
+        Quote Reference:
+        <strong id="quoteReference"></strong>
+    </p>
+
+    <script>
+        const insuranceType = sessionStorage.getItem("insuranceType");
+        const age = Number(sessionStorage.getItem("age"));
+
+        let premium = 1200;
+
+        if (insuranceType === "Third Party") {
+            premium = 750;
+        }
+
+        if (age >= 50) {
+            premium += 150;
+        }
+
+        const quoteReference =
+            "TIH-" + Math.floor(100000 + Math.random() * 900000);
+
+        document.getElementById("premium").textContent =
+            "R" + premium + " per month";
+
+        document.getElementById("quoteReference").textContent =
+            quoteReference;
+    </script>
+
+</body>
+</html>

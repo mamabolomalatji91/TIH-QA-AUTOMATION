@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIH Insurance Quote</title>
+</head>
+
+<body>
+
+    <h1>Get an Insurance Quote</h1>
+
+    <form id="vehicleForm">
+
+        <label for="insuranceType">Insurance Type:</label>
+        <select id="insuranceType">
+            <option value="">Select insurance type</option>
+            <option value="Comprehensive">Comprehensive</option>
+            <option value="Third Party">Third Party</option>
+        </select>
+
+        <br><br>
+
+        <label for="registration">Vehicle Registration:</label>
+        <input type="text" id="registration">
+
+        <br><br>
+
+        <label for="make">Vehicle Make:</label>
+        <input type="text" id="make">
+
+        <br><br>
+
+        <label for="model">Vehicle Model:</label>
+        <input type="text" id="model">
+
+        <br><br>
+
+        <button id="continueButton" onclick="...">Continue</button>
+
+    </form>
+
+    <p id="errorMessage"></p>
+
+    <script>
+        document.getElementById("vehicleForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const insuranceType = document.getElementById("insuranceType").value;
+            const registration = document.getElementById("registration").value;
+            const make = document.getElementById("make").value;
+            const model = document.getElementById("model").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (!insuranceType || !registration || !make || !model) {
+                errorMessage.textContent = "Please complete all required fields.";
+                return;
+            }
+
+            sessionStorage.setItem("insuranceType", insuranceType);
+            sessionStorage.setItem("registration", registration);
+            sessionStorage.setItem("make", make);
+            sessionStorage.setItem("model", model);
+
+            window.location.href = "customer.html";
+        });
+    </script>
+
+</body>
+</html>

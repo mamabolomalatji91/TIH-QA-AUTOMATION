@@ -1,0 +1,11 @@
+first_name,last_name,id_number,email,phone,age,expected_result
+John,Tester,9001015009087,john@test.com,0821234567,30,valid
+Sarah,Smith,8805055009088,sarah@test.com,0822345678,25,valid
+Michael,Customer,7001015009089,michael@test.com,0824567890,56,valid
+Teen,Tester,0901015009087,teen@test.com,0823456789,17,rejected
+Boundary,Customer,0801015009090,boundary@test.com,0825678901,18,valid
+Senior,Customer,6001015009091,senior@test.com,0826789012,70,valid
+InvalidEmail,Tester,9001015009092,invalid-email,0827890123,30,rejected
+InvalidPhone,Tester,9001015009093,phone@test.com,12345,30,valid
+BlankName,,9001015009094,blank@test.com,0828901234,30,rejected
+Young,Customer,1001015009095,young@test.com,0829012345,16,rejected
