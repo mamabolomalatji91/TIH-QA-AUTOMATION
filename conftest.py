@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 from config import APP_URL
 
@@ -27,7 +28,13 @@ logging.basicConfig(
 def driver():
     logging.info("Starting Chrome WebDriver")
 
-    driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument("--headless=new")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--window-size=1920,1080")
+
+    driver = webdriver.Chrome(options=options)
     driver.get(APP_URL)
 
     logging.info("Application opened: %s", APP_URL)
